@@ -6,12 +6,14 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class BrowserFactory {
 
     static WebDriver driver;
 
+    @BeforeTest
     public static WebDriver startBrowser(String browserChoice, String url) {
         if (browserChoice.equalsIgnoreCase("Edge")) {
             EdgeOptions edgeOptions = new EdgeOptions();
