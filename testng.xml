@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="All Test Suite">
+    <listeners>
+        <listener  class-name="ExtentReports.Listener"></listener>
+    </listeners>
+    <test name="Sauce Demo Tests">
+
+        <classes>
+
+            <class name="Test.PurchaseItemTests"></class>
+
+        </classes>
+
+    </test> <!-- Test -->
+
+</suite> <!-- Suite -->

@@ -8,7 +8,7 @@ import java.io.File;
 
 public class ExtentReportManager {
 
-    private static String reportDir = System.getProperty("user.dir") + "/Reports";
+    private static String reportDir = System.getProperty("user.dir") + "/Reports/sauceDemo.html";
 
     private static ExtentReports extentReports;
 
@@ -21,7 +21,7 @@ public class ExtentReportManager {
 
 
         extentSparkReporter.config().setDocumentTitle("Extent Report");
-        extentSparkReporter.config().setTheme(Theme.DARK);
+       // extentSparkReporter.config().setTheme(Theme.DARK);
         extentSparkReporter.config().setReportName("Sauce Demo");
 
         extentReports.setSystemInfo("OS", System.getProperty("os.name"));
