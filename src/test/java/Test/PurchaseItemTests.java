@@ -3,17 +3,20 @@ package Test;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
+import static Utils.ReadFromExcel.password;
+import static Utils.ReadFromExcel.username;
+
 @Test
 public class PurchaseItemTests extends Base{
 
 
     public void enterUsernameTest(){
-        loginPage.enterUsername("standard_user");
+        loginPage.enterUsername(readFromExcel.username);
     }
 
     @Test(dependsOnMethods = "enterUsernameTest")
     public void enterPasswordTest(){
-        loginPage.enterPassword("secret_sauce");
+        loginPage.enterPassword(readFromExcel.password);
     }
 
     @Test(dependsOnMethods = "enterPasswordTest")

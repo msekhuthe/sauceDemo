@@ -3,9 +3,12 @@ package Test;
 import Pages.LandingPage;
 import Pages.LoginPage;
 import Utils.BrowserFactory;
+import Utils.ReadFromExcel;
 import Utils.TakeScreenshots;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+
+import java.io.IOException;
 
 public class Base {
 
@@ -18,6 +21,16 @@ public class Base {
     // Initialize the page objects
     LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
     LandingPage landingPage = PageFactory.initElements(driver, LandingPage.class);
+
+    ReadFromExcel readFromExcel;
+
+    {
+        try {
+            readFromExcel = new ReadFromExcel();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     // Initialize the TakeScreenshots utility
     TakeScreenshots takeScreenshots = new TakeScreenshots();
