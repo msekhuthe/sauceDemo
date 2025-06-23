@@ -9,13 +9,17 @@ import org.openqa.selenium.support.PageFactory;
 
 public class Base {
 
+    // Initialize the browser and pages
     BrowserFactory browserFactory = new BrowserFactory();
+
+    // Start the browser with the specified URL
     final WebDriver driver = browserFactory.startBrowser("Edge", "https://www.saucedemo.com/");
 
+    // Initialize the page objects
     LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
-
     LandingPage landingPage = PageFactory.initElements(driver, LandingPage.class);
 
+    // Initialize the TakeScreenshots utility
     TakeScreenshots takeScreenshots = new TakeScreenshots();
 
 
