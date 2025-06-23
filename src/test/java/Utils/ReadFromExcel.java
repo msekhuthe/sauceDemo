@@ -41,11 +41,18 @@ public class ReadFromExcel {
     }
 
     // Access the "Login Details" sheet
-    static XSSFSheet sheet = workbook.getSheet("Login Details");
+    static XSSFSheet loginSheet = workbook.getSheet("Login Details");
 
     // Read the username from the first row and first cell
-    public static String username = sheet.getRow(1).getCell(0).getStringCellValue();
-    public static String password = sheet.getRow(1).getCell(1).getStringCellValue();
+    public static String username = loginSheet.getRow(1).getCell(0).getStringCellValue();
+    public static String password = loginSheet.getRow(1).getCell(1).getStringCellValue();
+
+    static XSSFSheet infoSheet = workbook.getSheet("User Information");
+
+    public static String firstName = infoSheet.getRow(1).getCell(0).getStringCellValue();
+    public static String lastName = infoSheet.getRow(1).getCell(1).getStringCellValue();
+    public static String postalCode = infoSheet.getRow(2).getCell(2).getStringCellValue();
+
 
 
 

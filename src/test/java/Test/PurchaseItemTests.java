@@ -32,6 +32,61 @@ public class PurchaseItemTests extends Base{
         landingPage.verifyLandingPage("Products");
     }
 
+    @Test(dependsOnMethods = "verifyLandingPageTest")
+    public void clickAddToCartButtonTest(){
+        landingPage.clickAddToCartButton();
+        takeScreenshots.takeSnapShot(driver, "AddToCartButtonScreenshot");
+
+    }
+
+    @Test(dependsOnMethods = "clickAddToCartButtonTest")
+    public void clickShoppingCartLinkTest(){
+        landingPage.clickShoppingCartLink();
+        takeScreenshots.takeSnapShot(driver, "ShoppingCartLinkScreenshot");
+    }
+    @Test(dependsOnMethods = "clickShoppingCartLinkTest")
+    public void verifyYourCartPageTest(){
+        yourCartPage.verifyYourCartPage("Your Cart");
+        takeScreenshots.takeSnapShot(driver, "YourCartPageScreenshot");
+    }
+    @Test(dependsOnMethods = "verifyYourCartPageTest")
+    public void clickCheckOutButtonTest(){
+        yourCartPage.clickCheckOutButton();
+    }
+
+    @Test(dependsOnMethods = "clickCheckOutButtonTest")
+    public void verifyCheckoutTest(){
+        checkoutPage.verifyCheckoutPage("Checkout: Your Information");
+        takeScreenshots.takeSnapShot(driver, "CheckoutPageScreenshot");
+    }
+    @Test(dependsOnMethods = "verifyCheckoutTest")
+    public void enterFirstNameTest(){
+        checkoutPage.enterFirstName(ReadFromExcel.firstName);
+    }
+    @Test(dependsOnMethods = "enterFirstNameTest")
+    public void enterLastNameTest(){
+        checkoutPage.enterLastName(ReadFromExcel.lastName);
+
+    }
+    @Test(dependsOnMethods = "enterLastNameTest")
+    public void enterPostalCodeTest(){
+        checkoutPage.enterPostalCode(ReadFromExcel.postalCode);
+        takeScreenshots.takeSnapShot(driver, "CheckoutInfoPageScreenshot");
+    }
+    @Test(dependsOnMethods = "enterPostalCodeTest")
+    public void clickContinueButtonTest(){
+        checkoutPage.clickContinueButton();
+    }
+    @Test(dependsOnMethods = "clickContinueButtonTest")
+    public void verifyOverviewPageTest(){
+        overviewPage.verifyOverviewPage("Checkout: Overview");
+        takeScreenshots.takeSnapShot(driver, "OverviewPageScreenshot");
+    }
+    @Test(dependsOnMethods = "verifyOverviewPageTest")
+    public void clickFinishButtonTest(){
+        overviewPage.clickFinishButton();
+    }
+
     @AfterTest
     public void closeBrowserTest(){
         driver.quit();

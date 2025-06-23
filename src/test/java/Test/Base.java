@@ -1,7 +1,6 @@
 package Test;
 
-import Pages.LandingPage;
-import Pages.LoginPage;
+import Pages.*;
 import Utils.BrowserFactory;
 import Utils.ReadFromExcel;
 import Utils.TakeScreenshots;
@@ -21,6 +20,9 @@ public class Base {
     // Initialize the page objects
     LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
     LandingPage landingPage = PageFactory.initElements(driver, LandingPage.class);
+    YourCartPage yourCartPage = PageFactory.initElements(driver, YourCartPage.class );
+    CheckoutPage checkoutPage = PageFactory.initElements(driver, CheckoutPage.class);
+    OverviewPage overviewPage = PageFactory.initElements(driver, OverviewPage.class);
 
     ReadFromExcel readFromExcel;
 

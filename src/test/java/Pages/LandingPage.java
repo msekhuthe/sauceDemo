@@ -16,6 +16,14 @@ public class LandingPage {
 
     @FindBy(xpath = "//*[@id=\"header_container\"]/div[2]/span")
     WebElement productText;
+    @FindBy(id = "add-to-cart-sauce-labs-backpack")
+    WebElement addToCartButton;
+    @FindBy(className = "shopping_cart_link")
+    WebElement shoppingCartLink;
+
+
+
+
 
     public LandingPage(WebDriver driver) {
         this.driver = driver;
@@ -28,4 +36,11 @@ public class LandingPage {
         Assert.assertEquals(actualText, "Products");
 
     }
+    public void clickAddToCartButton(){
+        addToCartButton.click();
+    }
+    public void clickShoppingCartLink(){
+        shoppingCartLink.click();
+    }
+
 }
