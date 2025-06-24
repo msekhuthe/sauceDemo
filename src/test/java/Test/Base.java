@@ -23,6 +23,7 @@ public class Base {
     YourCartPage yourCartPage = PageFactory.initElements(driver, YourCartPage.class );
     CheckoutPage checkoutPage = PageFactory.initElements(driver, CheckoutPage.class);
     OverviewPage overviewPage = PageFactory.initElements(driver, OverviewPage.class);
+    CompletePage completePage = PageFactory.initElements(driver, CompletePage.class);
 
     ReadFromExcel readFromExcel;
 

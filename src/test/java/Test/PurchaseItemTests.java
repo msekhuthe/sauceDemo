@@ -86,6 +86,15 @@ public class PurchaseItemTests extends Base{
     public void clickFinishButtonTest(){
         overviewPage.clickFinishButton();
     }
+    @Test(dependsOnMethods = "clickFinishButtonTest")
+    public void verifyCompletePageTest(){
+        completePage.verifyCompletePage("Checkout: Complete!");
+        takeScreenshots.takeSnapShot(driver, "CompletePageScreenshot");
+    }
+    @Test(dependsOnMethods = "verifyCompletePageTest")
+    public void clickBackHomeButtonTest(){
+        completePage.clickBackHomeButton();
+    }
 
     @AfterTest
     public void closeBrowserTest(){
