@@ -4,9 +4,6 @@ import Utils.ReadFromExcel;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
-import static Utils.ReadFromExcel.password;
-import static Utils.ReadFromExcel.username;
-
 @Test
 public class PurchaseItemTests extends Base{
 
@@ -83,9 +80,15 @@ public class PurchaseItemTests extends Base{
         takeScreenshots.takeSnapShot(driver, "OverviewPageScreenshot");
     }
     @Test(dependsOnMethods = "verifyOverviewPageTest")
+    public void validateTotalAmountTest(){
+        overviewPage.validateAmountTotal();
+        //takeScreenshots.takeSnapShot(driver, "TotalAmountScreenshot");
+    }
+    @Test(dependsOnMethods = "validateTotalAmountTest")
     public void clickFinishButtonTest(){
         overviewPage.clickFinishButton();
     }
+
     @Test(dependsOnMethods = "clickFinishButtonTest")
     public void verifyCompletePageTest(){
         completePage.verifyCompletePage("Checkout: Complete!");
